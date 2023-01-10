@@ -6,7 +6,9 @@ jobs:
 
     steps:
       - name: checkout repo content
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@2
+        with:
+          github_token: ${{ secrets.WORKFLOW_TOKEN }}
 
       - name: setup python
       - uses: actions/setup-python@v4
