@@ -22,3 +22,4 @@ class Patiente(Base):
     cel = models.CharField(verbose_name='Celular', blank=True, max_length=150)
     address = models.CharField(verbose_name='Endereço', blank=True, max_length=150)
     active = models.BooleanField(default=True)
+# hghghghghg
