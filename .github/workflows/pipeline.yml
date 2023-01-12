@@ -13,7 +13,7 @@ jobs:
         with:
           python-version: '3.8'
 
-      - name: install python packages
+#      - name: install python packages
       - run: ls -la
       - run: cd backend
 #        run: |
