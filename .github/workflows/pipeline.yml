@@ -18,7 +18,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: commit changes
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: feat:Apply python changes
+#      - name: commit changes
+#        uses: stefanzweifel/git-auto-commit-action@v4
+#        with:
+#          commit_message: feat:Apply python changes
