@@ -18,7 +18,7 @@ class Base(models.Model):
 class Patiente(Base):
     name = models.CharField(verbose_name='Nome', null=False, blank=False, max_length=150)
     cpf = models.CharField(verbose_name='CPF', max_length=11)
-    # birth = models.DateField(verbose_name='Nascimento')
+    birth = models.DateField(verbose_name='Nascimento')
     cel = models.CharField(verbose_name='Celular', blank=True, max_length=11)
     address = models.CharField(verbose_name='Endereço', blank=True, max_length=150)
     active = models.BooleanField(default=True)
