@@ -1,5 +1,4 @@
 import pytest
-# from time import
 from ..models import Patiente
 
 
