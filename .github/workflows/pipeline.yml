@@ -21,8 +21,7 @@ jobs:
 
       - name: running tests
         run: |
-          cd backend
-#          python manage.py migrate
+          cd backend          
           pytest
 
       - name: commit changes
