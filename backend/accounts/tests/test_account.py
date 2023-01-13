@@ -18,7 +18,7 @@ def test_create_superuser(customuser):
     user = customuser.objects.create_superuser(username='superwill', email='superwill@email.com',
                                                password='testpass123')
     assert user.username == 'superwill'
-    assert user.email == 'superwill@email.com'
+    assert user.email == 'superwill@email.co'
     assert user.is_active
     assert user.is_staff
     assert user.is_superuser
