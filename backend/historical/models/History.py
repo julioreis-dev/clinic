@@ -1,4 +1,5 @@
 from ..models import *
+from core.models import Patiente
 
 
 class Base(models.Model):
@@ -24,6 +25,7 @@ class History(Base):
     familiar_history = models.TextField(verbose_name='Histórico Familiar', null=True, blank=True)
     old_medication = models.TextField(verbose_name='Medicação em uso', null=True, blank=True)
     conduct = models.TextField(verbose_name='Conduta', null=True, blank=True)
+    patiente = models.ForeignKey(Patiente, null=True, blank=True, on_delete=models.CASCADE, related_name='history')
 
     class Meta:
         app_label = 'historical'
