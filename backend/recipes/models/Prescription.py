@@ -22,5 +22,8 @@ class Prescription(Base):
     exams = models.TextField(verbose_name='Exames', null=True, blank=True)
     patiente = models.ForeignKey(Patiente, null=True, blank=True, on_delete=models.CASCADE, related_name='prescription')
 
+    def __str__(self):
+        return f'{self.patiente}'
+
     class Meta:
         app_label = 'recipes'

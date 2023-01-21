@@ -16,7 +16,7 @@ class Base(models.Model):
 
 
 class Patiente(Base):
-    SEXO_CHOICES = (
+    GENDER_CHOICES = (
         ("F", "Feminino"),
         ("M", "Masculino"),
         ("N", "Nenhuma das opções")
@@ -26,7 +26,7 @@ class Patiente(Base):
     cpf = models.CharField(verbose_name='CPF', max_length=11, unique=True, null=False, blank=False)
     birth = models.DateField(verbose_name='Nascimento')
     profession = models.CharField(verbose_name='Profissão', max_length=50, null=False, blank=True)
-    gender = models.CharField(verbose_name='Sexo', max_length=1, choices=SEXO_CHOICES, blank=False, null=False,
+    gender = models.CharField(verbose_name='Sexo', max_length=1, choices=GENDER_CHOICES, blank=False, null=False,
                               default='N')
     cel = models.CharField(verbose_name='Celular', blank=True, max_length=11)
     address = models.CharField(verbose_name='Endereço', blank=True, max_length=150)

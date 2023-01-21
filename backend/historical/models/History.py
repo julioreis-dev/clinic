@@ -27,5 +27,8 @@ class History(Base):
     conduct = models.TextField(verbose_name='Conduta', null=True, blank=True)
     patiente = models.ForeignKey(Patiente, null=True, blank=True, on_delete=models.CASCADE, related_name='history')
 
+    def __str__(self):
+        return f'{self.patiente}'
+
     class Meta:
         app_label = 'historical'
