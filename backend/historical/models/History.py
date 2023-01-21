@@ -6,8 +6,8 @@ class Base(models.Model):
     """
     Abstract Class used in other classes
     """
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(verbose_name='Data de criação', auto_now_add=True)
+    updated_at = models.DateTimeField(verbose_name='Ultima atualização', auto_now=True)
 
     class Meta:
         """
