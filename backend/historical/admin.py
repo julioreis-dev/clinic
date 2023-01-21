@@ -3,7 +3,7 @@ from .models.History import History
 
 
 class HistoryAdmin(admin.ModelAdmin):
-    # list_display = ('number', 'hotels', 'price', 'active')
+    list_display = ('patiente',)
     readonly_fields = ("created_at", "updated_at")
 
 

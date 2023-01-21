@@ -3,7 +3,7 @@ from .models.Prescription import Prescription
 
 
 class PrescriptionAdmin(admin.ModelAdmin):
-    list_display = ('alegations', 'medication', 'exams', 'created_at', 'updated_at', 'patiente')
+    list_display = ('patiente', "updated_at")
     readonly_fields = ("created_at", "updated_at")
 
 
