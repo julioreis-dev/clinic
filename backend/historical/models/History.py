@@ -25,7 +25,7 @@ class History(Base):
     familiar_history = models.TextField(verbose_name='Histórico Familiar', null=True, blank=True)
     old_medication = models.TextField(verbose_name='Medicação em uso', null=True, blank=True)
     conduct = models.TextField(verbose_name='Conduta', null=True, blank=True)
-    patiente = models.ForeignKey(Patiente, null=True, blank=True, on_delete=models.CASCADE, related_name='history')
+    patiente = models.OneToOneField(Patiente, null=True, blank=True, on_delete=models.CASCADE, related_name='history')
 
     def __str__(self):
         return f'{self.patiente}'

@@ -1,4 +1,5 @@
 from ..models import *
+# from historical.models import History
 
 
 class Base(models.Model):
@@ -31,6 +32,7 @@ class Patiente(Base):
     cel = models.CharField(verbose_name='Celular', blank=True, max_length=11)
     address = models.CharField(verbose_name='Endereço', blank=True, max_length=150)
     active = models.BooleanField(default=True)
+    # history = models.OneToOneField(History, null=True, blank=True, on_delete=models.CASCADE, related_name='patiente')
 
     def __str__(self):
         return f'{self.name}'
