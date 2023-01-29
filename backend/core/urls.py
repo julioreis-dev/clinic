@@ -5,8 +5,8 @@ from .views import PatientesViewSet
 
 app_name = 'core_api'
 
-router = DefaultRouter()
-router.register('patientes', viewset=PatientesViewSet, basename='patientesviewset')
+router_core = DefaultRouter()
+router_core.register('patientes', viewset=PatientesViewSet, basename='patientesviewset')
 
 urlpatterns = [
     # path('', include(router.urls)),
