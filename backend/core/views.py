@@ -6,6 +6,7 @@ from rest_framework import mixins
 from rest_framework.response import Response
 from rest_framework.decorators import action
 from historical.serializers import HistorySerializers
+from recipes.serializers import PrescriptionSerializers
 
 class PatientesViewSet(viewsets.ReadOnlyModelViewSet):
     """
@@ -14,7 +15,7 @@ class PatientesViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = PatienteSerializers
     queryset = Patiente.objects.all()
 
-    @action(detail=True, methods=['get'])
+    @action(detail=True, url_path='historical', methods=['get'])
     def listhistory(self, request, pk=None):
         """
         History of a patiente
@@ -23,9 +24,11 @@ class PatientesViewSet(viewsets.ReadOnlyModelViewSet):
         serializer = HistorySerializers(response.history, many=False)
         return Response(serializer.data)
 
-#
-#
-#
-#
-# class PatienteViewSet(viewsets.ModelViewSet):
-#     pass
+    @action(detail=True, url_path='prescription', methods=['get'])
+    def listprescription(self, request, pk=None):
+        """
+        Historical of all prescription to the patiente
+        """
+        response = self.get_object()
+        serializer = PrescriptionSerializers(response.prescription.all(), many=True)
+        return Response(serializer.data)
