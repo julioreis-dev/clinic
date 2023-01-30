@@ -5,11 +5,10 @@ from .views import PatientesViewSet
 
 app_name = 'core_api'
 
-router_core = DefaultRouter()
-router_core.register('patientes', viewset=PatientesViewSet, basename='patientesviewset')
+router = DefaultRouter()
+router.register('patientes', viewset=PatientesViewSet, basename='patientesviewset')
 
 urlpatterns = [
-    # path('', include(router.urls)),
+    path('', include(router.urls)),
 ]
 
-urlpatterns = format_suffix_patterns(urlpatterns, allowed=['json', 'html'])
