@@ -27,7 +27,7 @@ class PatientesViewSet(viewsets.ReadOnlyModelViewSet):
     @action(detail=True, url_path='prescription', methods=['get'])
     def listprescription(self, request, pk=None):
         """
-        Historical of all prescription to the patiente
+        Historical of all prescription of a patiente
         """
         response = self.get_object()
         serializer = PrescriptionSerializers(response.prescription.all(), many=True)
