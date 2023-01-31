@@ -1,6 +1,8 @@
 import pytest
-from ..models import Patiente
 from faker import Faker
+from model_mommy import mommy
+from ..models import Patiente
+from historical.models.History import History
 
 
 @pytest.fixture(scope='function')
