@@ -12,3 +12,8 @@ def test_history_info(sethistory):
     assert sethistory[0].familiar_history == sethistory[1]['familiar_history']
     assert sethistory[0].old_medication == sethistory[1]['old_medication']
     assert sethistory[0].conduct == sethistory[1]['conduct']
+
+
+
+def test_one_history_should_return_succeed(client):
+    pass

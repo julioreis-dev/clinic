@@ -1,7 +1,8 @@
 import pytest
-from ..models.History import History
 from faker import Faker
-
+from model_mommy import mommy
+from ..models.History import History
+# from core.models.Patiente import Patiente
 
 @pytest.fixture(scope='function')
 def sethistory() -> tuple:
@@ -23,3 +24,5 @@ def sethistory() -> tuple:
                                   familiar_history=dict_faker['familiar_history'],
                                   old_medication=dict_faker['old_medication'],
                                   conduct=dict_faker['conduct']), dict_faker
+
+
