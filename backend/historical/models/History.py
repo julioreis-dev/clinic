@@ -1,12 +1,13 @@
 from ..models import *
+from core.models import Patiente
 
 
 class Base(models.Model):
     """
     Abstract Class used in other classes
     """
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(verbose_name='Data de criação', auto_now_add=True)
+    updated_at = models.DateTimeField(verbose_name='Ultima atualização', auto_now=True)
 
     class Meta:
         """
@@ -24,6 +25,10 @@ class History(Base):
     familiar_history = models.TextField(verbose_name='Histórico Familiar', null=True, blank=True)
     old_medication = models.TextField(verbose_name='Medicação em uso', null=True, blank=True)
     conduct = models.TextField(verbose_name='Conduta', null=True, blank=True)
+    patiente = models.OneToOneField(Patiente, null=True, blank=True, on_delete=models.CASCADE, related_name='history')
+
+    def __str__(self):
+        return f'{self.patiente}'
 
     class Meta:
         app_label = 'historical'
