@@ -21,29 +21,29 @@ def test_added_one_patiente_should_return_succeed(client, setupaciente) -> None:
     response.status_code == 200
     response_content = json.loads(response.content)[0]
     assert len(json.loads(response.content)) == 1
-    assert response_content['name'] == setupaciente['set_a'].name
-    assert response_content['cpf'] == setupaciente['set_a'].cpf
-    assert response_content['birth'] == setupaciente['set_a'].birth.strftime("%Y-%m-%d")
-    assert response_content['cel'] == setupaciente['set_a'].cel
-    assert response_content['address'] == setupaciente['set_a'].address
-    assert response_content['profession'] == setupaciente['set_a'].profession
-    assert response_content['active'] == setupaciente['set_a'].active
-    assert response_content['gender'] == setupaciente['set_a'].gender
+    assert response_content['name'] == setupaciente['db_data'].name
+    assert response_content['cpf'] == setupaciente['db_data'].cpf
+    assert response_content['birth'] == setupaciente['db_data'].birth.strftime("%Y-%m-%d")
+    assert response_content['cel'] == setupaciente['db_data'].cel
+    assert response_content['address'] == setupaciente['db_data'].address
+    assert response_content['profession'] == setupaciente['db_data'].profession
+    assert response_content['active'] == setupaciente['db_data'].active
+    assert response_content['gender'] == setupaciente['db_data'].gender
 
 
 def test_one_patiente_should_return_succeed(client, setupaciente) -> None:
-    detail_url = reverse("core_api:patientesviewset-detail", kwargs={'pk': setupaciente["set_a"].id})
+    detail_url = reverse("core_api:patientesviewset-detail", kwargs={'pk': setupaciente["db_data"].id})
     response = client.get(detail_url)
     response.status_code == 200
     response_content = json.loads(response.content)
-    assert response_content['name'] == setupaciente["set_a"].name
-    assert response_content['cpf'] == setupaciente["set_a"].cpf
-    assert response_content['birth'] == setupaciente["set_a"].birth.strftime("%Y-%m-%d")
-    assert response_content['cel'] == setupaciente["set_a"].cel
-    assert response_content['address'] == setupaciente["set_a"].address
-    assert response_content['profession'] == setupaciente["set_a"].profession
-    assert response_content['active'] == setupaciente["set_a"].active
-    assert response_content['gender'] == setupaciente["set_a"].gender
+    assert response_content['name'] == setupaciente["db_data"].name
+    assert response_content['cpf'] == setupaciente["db_data"].cpf
+    assert response_content['birth'] == setupaciente["db_data"].birth.strftime("%Y-%m-%d")
+    assert response_content['cel'] == setupaciente["db_data"].cel
+    assert response_content['address'] == setupaciente["db_data"].address
+    assert response_content['profession'] == setupaciente["db_data"].profession
+    assert response_content['active'] == setupaciente["db_data"].active
+    assert response_content['gender'] == setupaciente["db_data"].gender
 
 
 def test_one_patiente_extra_actions_history_should_return_succeed(client, setinstance) -> None:

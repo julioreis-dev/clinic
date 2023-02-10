@@ -1,13 +1,14 @@
 import pytest
 from faker import Faker
 from model_mommy import mommy
+import random
 from ..models import Patiente
 from historical.models.History import History
 from recipes.models.Prescription import Prescription
 
 
 @pytest.fixture(scope='function')
-def setupaciente():
+def setupaciente() -> dict:
     faker = Faker()
     dict_faker = {'name': faker.name(),
                   'cpf': str(faker.random_int(11111111111, 99999999999)),
@@ -15,9 +16,9 @@ def setupaciente():
                   'cel': str(faker.random_int(11111111111, 99999999999)),
                   'address': faker.address(),
                   'profession': faker.job(),
-                  'active': False,
+                  'active': True if random.randint(0,1) == 1 else False,
                   'gender': faker.profile()['sex']}
-    return {"set_a":Patiente.objects.create(name=dict_faker['name'],
+    return {"db_data":Patiente.objects.create(name=dict_faker['name'],
                                    cpf=dict_faker['cpf'],
                                    birth=dict_faker['birth'],
                                    cel=dict_faker['cel'],
@@ -25,7 +26,7 @@ def setupaciente():
                                    profession=dict_faker['profession'],
                                    active=dict_faker['active'],
                                    gender=dict_faker['gender']),
-            "set_b":dict_faker}
+            "random_data":dict_faker}
 
 @pytest.fixture(scope='function')
 def setinstance():
