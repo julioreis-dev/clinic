@@ -5,7 +5,7 @@ from ..models.History import History
 # from core.models.Patiente import Patiente
 
 @pytest.fixture(scope='function')
-def sethistory() -> tuple:
+def sethistory() -> dict:
     faker = Faker()
     dict_faker = {'tabagism': True,
                   'alcoholic': False,
@@ -16,13 +16,13 @@ def sethistory() -> tuple:
                   'old_medication': faker.text(),
                   'conduct': faker.text()
                   }
-    return History.objects.create(tabagism=dict_faker['tabagism'],
+    return {"db_data": History.objects.create(tabagism=dict_faker['tabagism'],
                                   alcoholic=dict_faker['alcoholic'],
                                   work_out=dict_faker['work_out'],
                                   dst=dict_faker['dst'],
                                   illicit_substances=dict_faker['illicit_substances'],
                                   familiar_history=dict_faker['familiar_history'],
                                   old_medication=dict_faker['old_medication'],
-                                  conduct=dict_faker['conduct']), dict_faker
+                                  conduct=dict_faker['conduct']), "random_data":dict_faker}
 
 

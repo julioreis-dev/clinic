@@ -4,16 +4,12 @@ pytestmark = pytest.mark.django_db
 
 
 def test_history_info(sethistory):
-    assert sethistory[0].tabagism == sethistory[1]['tabagism']
-    assert sethistory[0].alcoholic == sethistory[1]['alcoholic']
-    assert sethistory[0].work_out == sethistory[1]['work_out']
-    assert sethistory[0].dst == sethistory[1]['dst']
-    assert sethistory[0].illicit_substances == sethistory[1]['illicit_substances']
-    assert sethistory[0].familiar_history == sethistory[1]['familiar_history']
-    assert sethistory[0].old_medication == sethistory[1]['old_medication']
-    assert sethistory[0].conduct == sethistory[1]['conduct']
+    assert sethistory["db_data"].tabagism == sethistory["random_data"]['tabagism']
+    assert sethistory["db_data"].alcoholic == sethistory["random_data"]['alcoholic']
+    assert sethistory["db_data"].work_out == sethistory["random_data"]['work_out']
+    assert sethistory["db_data"].dst == sethistory["random_data"]['dst']
+    assert sethistory["db_data"].illicit_substances == sethistory["random_data"]['illicit_substances']
+    assert sethistory["db_data"].familiar_history == sethistory["random_data"]['familiar_history']
+    assert sethistory["db_data"].old_medication == sethistory["random_data"]['old_medication']
+    assert sethistory["db_data"].conduct == sethistory["random_data"]['conduct']
 
-
-
-def test_one_history_should_return_succeed(client):
-    pass
